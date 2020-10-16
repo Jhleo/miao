@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: auto;
+        }
+
+        td {
+            width: 100px;
+            height: 100px;
+            border: 5px solid black;
+            text-align: center;
+        }
+
+        td div {
+            position: relative;
+            cursor: pointer;
+            height: 100px;
+        }
+
+        td div span {
+            display: block;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+
+        }
+
+        td div span:hover {
+            position: absolute;
+            border: 5px solid red;
+            top: -5px;
+            left: -5px;
+            width: 100px;
+            height: 100px;
+        }
+
+        .content {
+            font-size: 0;
+            margin: auto;
+        }
+
+        ul {
+            list-style: none;
+            width: 300px;
+            height: 300px;
+        }
+
+        li {
+
+            float: left;
+        }
+
+        .content a {
+            display: inline-block;
+            width: 94px;
+            height: 94px;
+            text-decoration: none;
+            text-align: center;
+            line-height: 94px;
+            font-size: 16px;
+            top: -3px;
+            left: -3px;
+            border: 3px solid black;
+            color: black;
+        }
+
+        .content a:hover {
+            border: 3px solid red;
+
+        }
+        .banner tr {
+            border: none;
+        }
+        .banner td{
+            border: 5px inset black;
+        }
+        .form:hover{
+            border: 5px outset red;
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <col>
+        <col>
+        <col>
+        <tbody>
+            <tr>
+                <td class="ad">
+                    <div><span>1</span></div>
+                </td>
+                <td class="ad">
+                    <div><span>2</span></div>
+                </td>
+                <td class="ad">
+                    <div><span>3</span></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="ad">
+                    <div><span>4</span></div>
+                </td>
+                <td class="ad">
+                    <div><span>5</span></div>
+                </td>
+                <td class="ad">
+                    <div><span>6</span></div>
+                </td>
+            </tr>
+            <tr>
+                <td class="ad">
+                    <div><span>7</span></div>
+                </td>
+                <td class="ad">
+                    <div><span>8</span></div>
+                </td>
+                <td class="ad">
+                    <div><span>9</span></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr style="margin-top: 40px; margin-bottom: 40px;">
+    <div class="wrap">
+        <ul class="content">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+        </ul>
+    </div>
+    <hr style="margin-top: 40px; margin-bottom: 40px;">
+    <table class="banner">
+        <tbody>
+            <tr>
+                <td class="form">1</td>
+                <td class="form">2</td>
+                <td class="form">3</td>
+            </tr>
+            <tr>
+                <td class="form">4</td>
+                <td class="form">5</td> 
+                <td class="form">6</td>
+            </tr>
+            <tr>
+                <td class="form">7</td>
+                <td class="form">8</td>
+                <td class="form">9</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>
