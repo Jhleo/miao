@@ -869,7 +869,7 @@
         let n = Number(prompt())
         let m = Number(prompt())
         let lie = new Array(n);
-        let str = ''
+        let str = []
         for (i = 1; i <= n; i++) {
             lie[i] = 1;
         }
@@ -880,10 +880,10 @@
         }
         for (i = 1; i <= n; i++) {
             if (lie[i] == -1) {
-                str += i + ','
+                str.push(i)
             }
         }
-        console.log(str);
+        console.log(str.join(',')); 
     </script>
     <script id="ch0105/32">
         let n = Number(prompt())
