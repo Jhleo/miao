@@ -209,4 +209,29 @@ var jhleo=function (){
         }
         return false
     }
-}
+    return{
+        max,
+        compact,
+        some,
+        negate,
+        flip,
+        after,
+        before,
+        ary,
+        intersectionBy,
+        flattenDeep,
+        flatten,
+        head,
+        differenceBy,
+        difference,
+        concat,
+        chunk,
+        fill,
+        dropRight,
+        drop,
+        lastIndexOf,
+        last,
+        join,
+        min
+    }
+}()
