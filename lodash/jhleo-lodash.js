@@ -1,7 +1,7 @@
 
-var jhleo = (function (){
+var jhleo =function (){
 
-     function iteratee(predicate) {
+    function iteratee(predicate) {
         if (typeof predicate === 'function') {
             return predicate
         }
@@ -238,4 +238,4 @@ var jhleo = (function (){
         join,
         min,
     }
-})()
+}()
