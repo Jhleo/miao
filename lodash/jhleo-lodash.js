@@ -205,7 +205,7 @@ var jhleo =function (){
         }
     }
     function some(ary,predicate){
-        let predicate=iteratee(predicate)
+        predicate=iteratee(predicate)
         for(let it of ary){
             if(predicate(it))return true
         }
