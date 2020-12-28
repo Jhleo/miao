@@ -1,5 +1,6 @@
 
 var jhleo = (function (){
+
      function iteratee(predicate) {
         if (typeof predicate === 'function') {
             return predicate
@@ -17,6 +18,7 @@ var jhleo = (function (){
             return predicate
         }
     }
+    //------------------------------
     function max(ary){
         var result=-Infinity
         if(ary.length==0){
@@ -209,7 +211,9 @@ var jhleo = (function (){
         }
         return false
     }
+
     return{
+        iteratee,
         max,
         compact,
         some,
