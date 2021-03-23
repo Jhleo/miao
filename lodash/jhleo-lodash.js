@@ -6,13 +6,20 @@ var jhleo =function (){
             return predicate
         }
         if (typeof predicate === "string") {
-            return property(predicate)
+            return (item) => item[predicate];
         }
         if (Array.isArray(predicate)) {
-            return matchesProperty(predicate)
+            return (item) => item[predicate[0]] == predicate[1];
         }
         if (typeof predicate === "object") {
-            return matches(predicate)
+            return function(obj){
+                for(let i of obj){
+                    if(predicate[i] !== undefined && obj[i] != predicate[i]) {
+                        return false;
+                      }
+                }
+                return true
+            }
         }
         if (typeof predicate === "boolean") {
             return predicate
@@ -111,11 +118,38 @@ var jhleo =function (){
         }
         return result
     }
-     function findIndex(array, predicate, fromIndex=0){
-
+    function find(array,predicate,fromIndex=0){
+        predicate=iteratee(predicate)
+        for(i=fromIndex;i<array.length;i++){
+            if(predicate(array[i])){
+                return array[i]
+            }
+        }
     }
-    function findLastIndex(array, predicate, fromIndex=0){
-
+    function findLast(array,predicate,fromIndex=array.length-1){
+        predicate = iteratee(predicate)
+        for(i=fromIndex;i>0;i--){
+            if(predicate(array[i]))
+            return array[i]
+        }
+    }
+     function findIndex(array, predicate, fromIndex=0){
+         predicate = iteratee(predicate)
+         for(var i =fromIndex;i<array.length;i++){
+             if(predicate(array[i])){
+                 return i
+             }
+             return -1
+         }
+    }
+    function findLastIndex(array, predicate, fromIndex=array.length-1){
+        predicate=iteratee(predicate)
+        for(var i = fromIndex;i>=0;i--){
+            if(predicate(array[i])){
+                return i
+            }
+            return -1
+        }
     }
     function concat(array,...arg){
         let result =[...array]
@@ -143,16 +177,32 @@ var jhleo =function (){
         let iteratee=arg[arg.length-1]
 
     }
+    function differenceWith(array,...arg){
+
+    }
+    function dropWhile(array,predicate){
+        let func=iteratee(predicate)
+        for(let i=0;i<array.length;i++){
+            if(!func(array[i])){
+                return array.slice(i)
+            }
+        }
+    }
+    function dropRightWhile(array,predicate){
+
+    }
    function head(array){       
         return array[0]
     }
     function flatten(array){
         let result = []
-        array.forEach(array => {
-            array.forEach(item=>{
-                result.push(item)
-            })
-        })
+        for(let i=0;i<array.length;i++){
+            if(Array.isArray(array[i])){
+                result.push(...array[i])
+            }else{
+                result.push(array[i])
+            }
+        }
         return result
     } 
     function flattenDeep(array){
@@ -211,6 +261,31 @@ var jhleo =function (){
         }
         return false
     }
+    function nth(array,n=0){
+        if(n>=0){
+            return array[n]
+        }else{
+            return array[array.length+n]
+        }
+    }
+    function groupBy(array,predicate){
+        let result ={}
+        predicate=iteratee(predicate)
+        for(let i of array){
+            if(result[predicate(i)]){
+                result[predicate(i)].push(i)
+            }else{
+                result[predicate(i)]=[i]
+            }
+        }
+        return result
+    }
+    function identity(value){
+        return value
+    }
+    function sum(array){
+        return array.reduce((val,number)=>val+number)
+    }
 
     return{
         iteratee,
@@ -237,5 +312,15 @@ var jhleo =function (){
         last,
         join,
         min,
+        nth,
+        groupBy,
+        identity,
+        sum,
+        find,
+        findIndex,
+        findLastIndex,
+        findLast,
+        dropWhile,
+        
     }
 }()
